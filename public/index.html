@@ -1,24 +1,159 @@
 <!DOCTYPE html>
 <html>
+  <style>
+    input{
+      width: 100%;
+      padding: 5px 5px;
+      margin: 8px 0;
+      border: none;
+      border-bottom: 2px solid #ccc;
+      box-sizing: border-box;
+      outline: none;
+      font-size: 120%;
+    }
+    input:focus{
+      border-bottom: 2px solid #000;
+    }
+    input::placeholder{
+      color: #aaa;  
+    }
+    input[type="date"]::before{
+      content: attr(placeholder)" : ";
+      color: #aaa;
+      white-space: pre;
+    }
+
+    /* The container */
+    .container {
+      display: block;
+      position: relative;
+      padding-left: 35px;
+      margin-bottom: 12px;
+      cursor: pointer;
+      font-size: 22px;
+      user-select: none;
+    }
+
+    /* Hide the browser's default checkbox */
+    .container input {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+      height: 0;
+      width: 0;
+    }
+
+    /* Create a custom checkbox */
+    .checkmark {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 25px;
+      width: 25px;
+      background-color: #eee;
+    }
+
+    /* On mouse-over, add a grey background color */
+    .container:hover input ~ .checkmark {
+      background-color: #ccc;
+    }
+
+    /* When the checkbox is checked, add a blue background */
+    .container input:checked ~ .checkmark {
+      background-color: #F17F06;
+    }
+
+    /* Create the checkmark/indicator (hidden when not checked) */
+    .checkmark:after {
+      content: "";
+      position: absolute;
+      display: none;
+    }
+
+    /* Show the checkmark when checked */
+    .container input:checked ~ .checkmark:after {
+      display: block;
+    }
+
+    /* Style the checkmark/indicator */
+    .container .checkmark:after {
+      left: 9px;
+      top: 5px;
+      width: 5px;
+      height: 10px;
+      border: solid white;
+      border-width: 0 3px 3px 0;
+      transform: rotate(45deg);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+    .column{
+      float: left;
+      width: 50%;
+      padding: 10px;
+    }
+    .row::after{
+      content: "";
+      display: table;
+      clear: both;
+    }
+    .columnLeft{
+
+    }
+    .columnRight{
+
+    }
+    
+  </style>
+
   <head>
     <title>CSS/HTML Workshop with govirtuo.com</title>
   </head>
-  <body>
-    <div id="car">
-      <input class="js-name" type="text" placeholder="Car name"/>
-      <input class="js-price-by-day" type="number" placeholder="Price by day"/>
-      <input class="js-price-by-km" type="number" placeholder="Price by km"/>
+  <div class="row">
+    <div class="column" style="font-size: 150%; font-weight: bold; color: #1F8BBF;">Driver Information
     </div>
-    <div id="rental">
-      <input class="js-name" type="text" placeholder="Driver name"/>
-      <input class="js-begin" type="date" placeholder="Rental begin date"/>
-      <input class="js-end" type="date" placeholder="Rental end date"/>
-      <input class="js-distance" type="number" placeholder="Distance in km"/>
-      <input class="js-option" type="checkbox" placeholder="Deductible option"/>
+    <div class="column" style="font-size: 150%; font-weight: bold; color: #F17F06;">Rental Information
     </div>
-    <button id="compute">Compute</button>
-    <div id="actors"></div>
-    <script src="virtuo.js"></script>
-    <script src="index.js"></script>
-  </body>
+  </div>
+  <div id="rental" class="row">
+    <div class="column">
+      <input id="test" class="js-name" type="text" placeholder="Driver Name" style="color: #1F8BBF"/>
+    </div>
+    <div id="car" class="column">
+      <input class="js-name" type="text" placeholder="Car Name" style="color: #F17F06"/>
+    </div>
+  </div>
+  <div class="row">
+    <div id="rental" class="column">
+      <input class="js-begin" type="date" placeholder="Pick-up Date" style="color: #1F8BBF"/>
+    </div>
+    <div id="car" class="column">
+      <input class="js-price-by-day" type="number" placeholder="Price by day" style="color: #F17F06"/>
+    </div>
+  </div>
+  <div class="row">
+    <div id="rental" class="column">
+      <input class="js-end" type="date" placeholder="Return Date" style="color: #1F8BBF"/>
+    </div>
+    <div id="car" class="column">
+      <input class="js-price-by-km" type="number" placeholder="Price by km" style="color: #F17F06"/>
+    </div>
+  </div>
+  <div class="row">
+    <div id="rental" class="column">
+      <input class="js-distance" type="number" placeholder="Distance in km" style="color: #1F8BBF"/>
+    </div>
+    <div class="column">
+      <label class="container">Deductible option
+        <input id="check" class="js-option" type="checkbox"/>
+        <span class="checkmark"></span>
+      </label>
+    </div>
+  </div>
+  <button id="compute">Compute</button>
+  <div id="actors"></div>
+  <script src="virtuo.js"></script>
+  <script src="index.js"></script>
 </html>

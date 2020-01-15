@@ -28,7 +28,7 @@
     const begin = document.querySelector('#rental .js-begin').value;
     const end = document.querySelector('#rental .js-end').value;
     const distance = document.querySelector('#rental .js-distance').value;
-    const option = document.querySelector('#rental .js-option').checked;
+    const option = document.getElementById("check").checked;
     const actors = VIRTUO.payActors(car, begin, end, distance, option);
 
     render(actors);
