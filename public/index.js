@@ -6,13 +6,24 @@
     const fragment = document.createDocumentFragment();
     const div = document.createElement('div');
     const template = actors.map(actor => {
-      return `
-        <div class="actor">
-          <span>${actor.who}</span>
-          <span>${actor.type}</span>
-          <span>${actor.amount}</span>
-        </div>
-      `;
+      if(actor.who == "Driver"){
+        return `
+          <div class="actor" style="color: #1F8BBF">
+            <span>${actor.who}</span>
+            <span>(${actor.type}) :</span>
+            <span class="euro">${actor.amount}</span>
+          </div>
+        `;
+      }
+      else{
+        return `
+          <div class="actor" style="color: #F17F06">
+            <span>${actor.who}</span>
+            <span>(${actor.type}) :</span>
+            <span class="euro">${actor.amount}</span>
+          </div>
+        `;
+      }
     }).join('');
 
     div.innerHTML = template;

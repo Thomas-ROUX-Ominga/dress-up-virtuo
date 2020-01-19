@@ -111,23 +111,23 @@ const VIRTUO = (() => { //eslint-disable-line
     }
 
     var actors = [{
-      'who': 'driver',
+      'who': 'Driver',
       'type': 'debit',
       'amount': price + deductibleOption
     }, {
-      'who': 'partner',
+      'who': 'Partner',
       'type': 'credit',
       'amount': price - commission.value
     }, {
-      'who': 'insurance',
+      'who': 'Insurance',
       'type': 'credit',
       'amount': commission.insurance
     }, {
-      'who': 'treasury',
+      'who': 'Treasury',
       'type': 'credit',
       'amount': commission.treasury
     }, {
-      'who': 'virtuo',
+      'who': 'Virtuo',
       'type': 'credit',
       'amount': commission.virtuo + deductibleOption
     }];

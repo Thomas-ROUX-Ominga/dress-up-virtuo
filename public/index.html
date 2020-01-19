@@ -10,6 +10,7 @@
       box-sizing: border-box;
       outline: none;
       font-size: 120%;
+      transition-duration: 0.3s;
     }
     input:focus{
       border-bottom: 2px solid #000;
@@ -19,6 +20,7 @@
     }
     input[type="date"]::before{
       content: attr(placeholder)" : ";
+      font-size: 120%;
       color: #aaa;
       white-space: pre;
     }
@@ -58,9 +60,10 @@
       background-color: #ccc;
     }
 
-    /* When the checkbox is checked, add a blue background */
+    /* When the checkbox is checked, add a orange background */
     .container input:checked ~ .checkmark {
       background-color: #F17F06;
+      transition-duration: 0.3s;
     }
 
     /* Create the checkmark/indicator (hidden when not checked) */
@@ -105,7 +108,34 @@
     .columnRight{
 
     }
-    
+    button{
+      background: #1F8BBF;
+      border: none;
+      color: white;
+      border: 2px solid #1F8BBF;
+      padding: 16px 32px;
+      text-align: center;
+      text-decoration: none;
+      font-size: 16px;
+      margin-left: 10px;
+      transition-duration: 0.5s;
+    }
+    button:hover{
+      background: white;
+      color: #1F8BBF;
+      border: 2px solid #1F8BBF;
+    }
+    span{
+      font-size: 120%;
+    }
+    span.euro:after{
+      content: '€';
+    }
+    div.act{
+       margin-top: 30px;
+       margin-left: 10px;
+    }
+
   </style>
 
   <head>
@@ -146,14 +176,14 @@
       <input class="js-distance" type="number" placeholder="Distance in km" style="color: #1F8BBF"/>
     </div>
     <div class="column">
-      <label class="container">Deductible option
+      <label class="container" style="font-size: 120%; top: 18px">Deductible option
         <input id="check" class="js-option" type="checkbox"/>
         <span class="checkmark"></span>
       </label>
     </div>
   </div>
   <button id="compute">Compute</button>
-  <div id="actors"></div>
+  <div id="actors" class="act"></div>
   <script src="virtuo.js"></script>
   <script src="index.js"></script>
 </html>
